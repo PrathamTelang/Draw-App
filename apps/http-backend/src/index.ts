@@ -1,12 +1,13 @@
 import express from "express";
 import jwt from "jsonwebtoken"
 import { config } from './config';
+import { middleware } from "./middleware";
 
 const app = express()
 
 app.listen(config.port)
 
-app.post("api/v1/signup", async (req, res) => {
+app.post("/api/v1/signup", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -19,7 +20,7 @@ app.post("api/v1/signup", async (req, res) => {
     })
 })
 
-app.post("api/v1/signin", async (req, res) => {
+app.post("/api/v1/signin", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password
 
@@ -37,5 +38,13 @@ app.post("api/v1/signin", async (req, res) => {
     
     res.json({
         message: "User signed in"
+    })
+})
+
+app.post("/room", middleware, (req, res) => {
+    // db call
+
+    res.json({
+        roomId: 123
     })
 })
