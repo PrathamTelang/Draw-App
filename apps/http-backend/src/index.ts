@@ -1,11 +1,11 @@
 import express from "express";
 import jwt from "jsonwebtoken"
-import { config } from './config';
+import {config} from "@repo/backend-common/config"
 import { middleware } from "./middleware";
 
 const app = express()
 
-app.listen(config.port)
+app.listen(config.httpport)
 
 app.post("/api/v1/signup", async (req, res) => {
     const username = req.body.username;
