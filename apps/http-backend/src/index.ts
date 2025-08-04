@@ -2,39 +2,29 @@ import express from "express";
 import jwt from "jsonwebtoken"
 import {config} from "@repo/backend-common/config"
 import { middleware } from "./middleware";
+import { CreateUserSchema } from "@repo/common/types";
 
 const app = express()
 
 app.listen(config.httpport)
 
 app.post("/api/v1/signup", async (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-
-    await UserModel.create({
-        username,
-        password
-    })
+    
+    const data = CreateUserSchema.safeParse(req.body)
+    if (!data.success) {
+        res.status(400).json({
+            message: "Invalid input"
+        });
+        return;
+    }
+    
     res.json({
-        message: "user signed in"
+        message: "user signed up"
     })
 })
 
 app.post("/api/v1/signin", async (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password
 
-    const existingUser = await UserModel.findOne({
-        username,
-        password
-        
-    })
-    if (existingUser) {
-        const token = jwt.sign(
-            {id: existingUser._id},
-            config.jwtSecret
-        );
-    }
     
     res.json({
         message: "User signed in"

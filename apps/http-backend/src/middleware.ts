@@ -1,4 +1,4 @@
-import { config } from './config';
+import {config} from "@repo/backend-common/config"
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
