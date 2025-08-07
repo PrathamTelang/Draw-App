@@ -19,7 +19,7 @@
     "@types/express": "^5.0.3",
     "@repo/backend-common": "workspace:*",
     "@repo/common": "workspace:*",
-    "@repo/database": "workspace:*"
+    "@repo/db": "workspace:*"
   },
   "keywords": [],
   "author": "",
