@@ -19,14 +19,21 @@ app.post("/api/v1/signup", async (req, res) => {
         return;
     }
 
-    prismaClient.user.create({
+    try {
+        await prismaClient.user.create({
         data: {
-            email: data.data.email,
+            email: data.data.username,
             password: data.data.password,
             name: data.data.name,
             photo: ""
         }
     })
+    } catch (e) {
+        res.status(411).json({
+            message: "User already exists"
+        })
+    }
+    
     if (!data.data.username || !data.data.password || !data.data.name) {
         res.status(400).json({
             message: "User information is incomplete"
