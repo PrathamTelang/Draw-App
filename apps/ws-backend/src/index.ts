@@ -1,9 +1,9 @@
 import { WebSocketServer } from "ws";
-import { config } from "./config";
+import {config} from "@repo/backend-common/config"
 import jwt, { JwtPayload } from "jsonwebtoken"
 
 
-const wss = new WebSocketServer({ port:config.port });
+const wss = new WebSocketServer({ port:config.wsport });
 
 wss.on('connection', function connection(ws, request) {
 
