@@ -11,7 +11,7 @@ export function ChatRoomClient({
     id: string
 }) {
     const [chats, setChats] = useState(messages);
-    const [currentMessage, setCurrentMessage] = useState()
+    const [currentMessage, setCurrentMessage] = useState<string>("")
     const {socket, loading} = useSocket();
 
     useEffect(() => {
