@@ -15,8 +15,7 @@ export function ChatRoomClient({
     const {socket, loading} = useSocket();
 
     useEffect(() => {
-        if (socket && loading) {
-
+        if (socket && !loading) {
             socket.send(JSON.stringify({
                 type: "join_room",
                 roomId: id
@@ -31,7 +30,9 @@ export function ChatRoomClient({
     }, [socket, loading, id])
 
     return <div>
-        {messages.map(m => <div>{m.messages}</div>)}
+        {chats.map((m, index) => (
+            <div key={index}>{m.messages}</div>
+        ))}
 
         <input type="text" value={currentMessage} onChange={e => {
             setCurrentMessage(e.target.value)
