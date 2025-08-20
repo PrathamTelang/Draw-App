@@ -143,3 +143,7 @@ app.get("/room/:slug", async (req, res ) => {
         room
     })
 })
+
+app.listen(config.httpport, () => {
+    console.log(`Server is running on port ${config.httpport}`);
+});
