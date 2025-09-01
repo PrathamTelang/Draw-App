@@ -15,8 +15,9 @@ import {
   Sparkles,
   Github,
   Twitter,
-  Linkedin
+  Linkedin,
 } from 'lucide-react';
+import Link from 'next/link';
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -91,9 +92,11 @@ function App() {
               <button className="text-gray-600 hover:text-blue-600 transition-colors duration-200">
                 Sign In
               </button>
+              <Link href="/signup">
               <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
                 Get Started
               </button>
+              </Link>
             </div>
             
             <button 
@@ -149,10 +152,12 @@ function App() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/signup">
                 <button className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
                   <span>Start Drawing</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
+                </Link>
                 <button className="group border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-blue-500 hover:text-blue-600 hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-2">
                   <Play className="w-5 h-5" />
                   <span>Watch Demo</span>
@@ -308,10 +313,12 @@ function App() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <Link href="/signup">
               <button className="group bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2">
                 <span>Get Started Free</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
+              </Link>
               <button className="border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 hover:shadow-xl transition-all duration-300">
                 Learn More
               </button>

@@ -1,6 +1,6 @@
 "use client"
 
-import {Input} from 
+import { Input } from "@repo/ui/input"
 
 export function AuthPage({ isSignin }: { isSignin: boolean }) {
   return (
@@ -11,12 +11,16 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
         </h2>
 
         <div className="space-y-4">
-          <Input/>
+          <Input
+            type="text"
+            placeholder="Email"
+            className=""
+          />
 
-          <input
+          <Input
             type="password"
             placeholder="Password"
-            className="w-full px-4 py-2 rounded-lg bg-[#1f1f1f] border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#BEFC6D] transition"
+            className=""
           />
         </div>
 
@@ -28,7 +32,7 @@ export function AuthPage({ isSignin }: { isSignin: boolean }) {
         </button>
 
         <p className="text-center text-sm text-gray-400">
-          {isSignin ? "Don’t have an account?" : "Already have an account?"}{" "}
+          {isSignin ? "Don't have an account?" : "Already have an account?"}{" "}
           <a
             href="#"
             className="text-[#BEFC6D] hover:underline font-medium"
