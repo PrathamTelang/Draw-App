@@ -14,7 +14,7 @@ export default function Canvas() {
                 return  
             }
 
-            ctx?.fillRect(25, 25, 100, 100)
+            ctx?.strokeRect(25, 25, 100, 100)
         }
     }, [canvasRef])
 
